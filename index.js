@@ -10,7 +10,8 @@ con.connect(function (error) {
         console.log("Connection Successful!");
         // InsertData(con);
         // DeleteData(con);
-        UpdateData(con);
+        // UpdateData(con);
+        SelectData(con);
     }
 });
 
@@ -43,6 +44,17 @@ function UpdateData(con) {
             console.log('Update Failed!');
         } else {
             console.log("Update Success");
+        }
+    });
+}
+
+function SelectData(con) {
+    let query = "SELECT * FROM `student`";
+    con.query(query, function (error, result) {
+        if (error) {
+            console.log('Select Failed!');
+        } else {
+            console.log("Select Success: ", result);
         }
     });
 }
