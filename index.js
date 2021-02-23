@@ -9,7 +9,8 @@ con.connect(function (error) {
     } else {
         console.log("Connection Successful!");
         // InsertData(con);
-        DeleteData(con);
+        // DeleteData(con);
+        UpdateData(con);
     }
 });
 
@@ -31,6 +32,17 @@ function DeleteData(con) {
             console.log('Delete Failed!');
         } else {
             console.log("Delete Success");
+        }
+    });
+}
+
+function UpdateData(con) {
+    let query = "UPDATE `student` SET `name`='Ahsan Habib',`roll`='235429' WHERE `id`='3'";
+    con.query(query, function (error) {
+        if (error) {
+            console.log('Update Failed!');
+        } else {
+            console.log("Update Success");
         }
     });
 }
